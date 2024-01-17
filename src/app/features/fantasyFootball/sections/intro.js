@@ -20,10 +20,10 @@ export default function FFAwsCompIntro({children}){
              passed the AWS Certified Solutions Architect Professional exam, I decided to start trying to move this application to cloud services.  I wanted to 
              try to stick with free/free-tier resources for the time being as this is just a personal project for me.  These resources included the following:</p>
              <ul className="list-disc pt-2">
-                <li className="ml-6">Amazon EC2 t2.micro instances (750 free hours/month)</li>
-                <li className="ml-6">Amazon ECS (always free, only charged for consumed resources)</li>
-                <li className="ml-6">Amazon ECR (500MB free private repository storage, 5TB free for public)</li>
-                <li className="ml-6">MongoDB Atlas (free for shared m0 instances with up to 5GB of storage)</li>
+                <li className="ml-6 mr-2">Amazon EC2 t2.micro instances (750 free hours/month)</li>
+                <li className="ml-6 mr-2">Amazon ECS (always free, only charged for consumed resources)</li>
+                <li className="ml-6 mr-2">Amazon ECR (500MB free private repository storage, 5TB free for public)</li>
+                <li className="ml-6 mr-2">MongoDB Atlas (free for shared m0 instances with up to 5GB of storage)</li>
              </ul>
              <p className="pt-4 text-lg px-2">The architecture in the cloud looks as follows:</p>
             <p className="pt-4 self-center"><Image
@@ -33,10 +33,10 @@ export default function FFAwsCompIntro({children}){
                 height={200} /></p>
             <p className="pt-4 text-lg px-2">I want to share a few notes/caveats here that may be detailed in sections below.</p>
             <ul className="list-disc pt-2">
-                <li className="ml-6">Using Fargate with ECS for the compute portion of this archtecture will be lower maintenance.  However, t2.micro instances cannot be 
+                <li className="ml-6 mr-2">Using Fargate with ECS for the compute portion of this archtecture will be lower maintenance.  However, t2.micro instances cannot be 
                 used with Fargate as the the minimum memory requirement for 1 vCPU in Fargate is 2GB, and t2.micro (which is the only available instance type in the eu-central-1 
                 region for free-tier) is 1 vCPU/1GB memory.</li>
-                <li className="ml-6">All AWS resources (except the Atlas database on the MongoDB side) are hosted on public subnets, including the ECS container instances.  In an 
+                <li className="ml-6 mr-2">All AWS resources (except the Atlas database on the MongoDB side) are hosted on public subnets, including the ECS container instances.  In an 
                 optimal cloud infrastructure, the application layer would be provisioned in a private subnet and use a NAT Gateway to communicate with the Atlas database (or possibly, 
                 VPC peering with the VPC of the Atlas database would be used).  However, at $0.052 USD/hour in the eu-central-1 region, NAT Gateways can be expensive for personal projects.  
                 Also, VPC peering with MongoDB Atlas is supported for M10 instances and above, which start at $0.08 USD/hr.  Considering that, for the time being, I am running this app on an 

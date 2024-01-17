@@ -13,7 +13,7 @@ export default function CertManagerSummary() {
                 etc. as well as resource connected to your Amazon Virtual Private Cloud (VPC).  Public certificates can be provisioned at no cost (private certificates must be requested
                 from a private Certificate Authority, or CA and incur charges based on the duration of the certificate).
             </p>
-            <p className="pt-2">Since my domain is hosted on the public internet, I provisioned two public certificates:  one in the Frankfurt region (eu-central-1)
+            <p className="pt-2 mr-2">Since my domain is hosted on the public internet, I provisioned two public certificates:  one in the Frankfurt region (eu-central-1)
                 and one in the N. Virgina region (us-east-1).  &nbsp;
                 <Link
                     className="text-blue-800"

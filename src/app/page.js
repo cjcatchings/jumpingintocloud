@@ -1,6 +1,16 @@
 import Link from 'next/link'
+import * as React from 'react'
 
 export default function Home() {
+
+  const useSesh = v => {
+    const [ val, setVal ] = React.useState(v)
+    React.useEffect(() => {
+      localStorage.setItem('x', val)
+    }, [val])
+    return [val, setVal]
+  }
+
   return (
     <div className="flex flex-col justify-between w-full min-h-screen bg-white dark:bg-slate-700 lg:mx-8">
       <div className="flex flex-col w-full">
@@ -24,12 +34,28 @@ export default function Home() {
               <Link
                 href="/features/thisWebsite"
                 className="text-blue-600">This website (S3, CloudFront, Route 53)</Link>
+                <ul className="px-4 list-disc">
+                  <li className="mx-6">
+                    <Link
+                      className="text-blue-800"
+                      href="https://github.com/cjcatchings/jumpingintocloud">GitHub repo here</Link></li>
+                </ul>
             </li>
             <li className="text-lg mx-6">
               <Link
                 href="/features/fantasyFootball"
                 className="text-blue-600">
               A fantasy football application (ECS on EC2, ELB, Route 53, MongoDB Atlas) (WIP)</Link>
+              <ul className="px-4 list-disc">
+                  <li className="mx-6">
+                    <Link
+                      className="text-blue-800"
+                      href="https://github.com/cjcatchings/cjc-fantasyfootball-mw">GitHub repo for application layer here</Link></li>
+                  <li className="mx-6">
+                    <Link
+                      className="text-blue-800"
+                      href="https://github.com/cjcatchings/cjc-fantasyfootball-fe">GitHub repo for frontend here</Link></li>
+                </ul>
             </li>
           </ul>
         </main>
